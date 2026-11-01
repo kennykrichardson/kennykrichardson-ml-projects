@@ -1,7 +1,7 @@
 import ParticleNetwork from "./ParticleNetwork";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Link, Route, Routes, useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ChevronUp, ArrowUpRight, BookOpen, Code2, FileCode2, Search, LayoutGrid, List } from "lucide-react";
+import { ArrowLeft, ChevronUp, BookOpen, Code2, FileCode2, Search, LayoutGrid, List, Github, NotebookText, ExternalLink } from "lucide-react";
 import { createPortal } from "react-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -68,7 +68,7 @@ function ProjectRow({ project, view }: { project: Project; view: "list" | "grid"
   return <article className={`project-row ${view === "grid" ? "project-card" : ""}`}>
     <div className="project-heading">
       <Link to={`/project/${project.id}`} className="project-title">{project.name}</Link>
-      <Link className="open-project" to={`/project/${project.id}`}>OPEN EXPERIMENT <span>↗</span></Link>
+      <Link className="open-project" to={`/project/${project.id}`}><span>Open experiment</span><ExternalLink className="action-icon" size={14} strokeWidth={2.1}/></Link>
     </div>
     <p className="description">{project.category} · {project.language}</p>
     <p className="project-summary">{project.description}</p>
@@ -111,7 +111,7 @@ function Home() {
         </label>
         <div className="toolbar-controls">
           <div className="filters" aria-label="Filter projects">
-            {categories.map(category => <button key={category} className={filter === category ? "filter active" : "filter"} onClick={() => setFilter(category)}>{category}</button>)}
+            {categories.map(category => <button key={category} className={`filter category-${category.toLowerCase()}${filter === category ? " active" : ""}`} aria-pressed={filter === category} onClick={() => setFilter(category)}>{category}</button>)}
           </div>
           <div className="view-toggle" role="group" aria-label="Project layout">
             <button className={view === "list" ? "view-button active" : "view-button"} onClick={() => setView("list")} aria-label="List view" aria-pressed={view === "list"} title="List view"><List size={14}/></button>
@@ -374,8 +374,8 @@ function ProjectDetail() {
         <p>{project.description}</p>
         <div className="detail-meta">
           <span className={notebook ? "language notebook" : "language python"}><span className="language-dot"/>{project.language}</span>
-          <a href={`https://github.com/kennykrichardson/${project.repo}`} target="_blank" rel="noreferrer">View source on GitHub ↗</a>
-          <a href={notebook ? (project.notebookUrl ?? `${rawBase}${project.file}`) : `/source/${project.file}`} download><ArrowUpRight size={13}/> Download {notebook ? "notebook" : "source"}</a>
+          <a className="detail-action github-action" href={`https://github.com/kennykrichardson/${project.repo}`} target="_blank" rel="noreferrer"><Github size={16} strokeWidth={2}/><span>View source on GitHub</span><ExternalLink className="action-external" size={12}/></a>
+          <a className="detail-action download-action" href={notebook ? (project.notebookUrl ?? `${rawBase}${project.file}`) : `/source/${project.file}`} download><NotebookText size={16} strokeWidth={2}/><span>Download {notebook ? "notebook" : "source"}</span><ExternalLink className="action-external" size={12}/></a>
         </div>
         <div className="topics">{project.topics.map(topic => <span key={topic}>{topic}</span>)}</div>
       </div>

@@ -605,3 +605,280 @@ button{color:inherit}
     transition: none;
   }
 }
+
+
+/* Refined project actions and category controls */
+.open-project {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 34px;
+  padding: 0 12px !important;
+  border: 1px solid rgba(126, 177, 229, .28) !important;
+  border-radius: 7px !important;
+  color: #dcecff !important;
+  background: linear-gradient(135deg, rgba(37, 91, 145, .24), rgba(21, 35, 52, .30)) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.055), 0 3px 12px rgba(0,0,0,.12);
+  font-size: 9px !important;
+  font-weight: 650 !important;
+  letter-spacing: .025em;
+  text-transform: none;
+  text-decoration: none !important;
+  transition: color .24s ease, background .24s ease, border-color .24s ease, box-shadow .24s ease, transform .24s cubic-bezier(.2,.8,.2,1) !important;
+}
+.open-project .action-icon { transition: transform .24s ease; }
+.open-project:hover {
+  color: #fff !important;
+  border-color: rgba(117, 183, 246, .62) !important;
+  background: linear-gradient(135deg, rgba(227, 230, 232, 0.322), rgba(27, 57, 87, .48)) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 5px 18px rgba(25, 105, 183, .18);
+  transform: translateY(-2px);
+}
+.open-project:hover .action-icon { transform: translate(2px, -2px); }
+.open-project:active { transform: translateY(0) scale(.98); }
+
+.detail-meta { gap: 9px !important; }
+.detail-meta .detail-action {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 7px;
+  color: #d7dce4;
+  background: linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.018));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.055), 0 3px 12px rgba(0,0,0,.12);
+  font-size: 10px;
+  font-weight: 550;
+  text-decoration: none;
+  transition: color .24s ease, background .24s ease, border-color .24s ease, box-shadow .24s ease, transform .24s cubic-bezier(.2,.8,.2,1);
+}
+.detail-meta .detail-action svg { flex: 0 0 auto; transition: transform .24s ease, opacity .24s ease; }
+.detail-meta .github-action:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,.34);
+  background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.045));
+  box-shadow: 0 6px 20px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.10);
+  transform: translateY(-2px);
+}
+.detail-meta .github-action:hover > svg:first-child { transform: rotate(-8deg) scale(1.08); }
+.detail-meta .download-action {
+  color: #e5f2ff;
+  border-color: rgba(93,164,230,.30);
+  background: linear-gradient(135deg, rgba(34,100,157,.25), rgba(24,45,67,.28));
+}
+.detail-meta .download-action:hover {
+  color: #fff;
+  border-color: rgba(112,184,255,.65);
+  background: linear-gradient(135deg, rgba(37,116,185,.43), rgba(25,65,102,.42));
+  box-shadow: 0 6px 20px rgba(26,105,177,.18), inset 0 1px 0 rgba(255,255,255,.10);
+  transform: translateY(-2px);
+}
+.detail-meta .download-action:hover > svg:first-child { transform: translateY(-2px); }
+.detail-meta .action-external { opacity: .48; }
+.detail-meta .detail-action:hover .action-external { opacity: .9; transform: translate(1px,-1px); }
+.detail-meta .detail-action:active { transform: translateY(0) scale(.98); }
+.detail-meta .detail-action:focus-visible,
+.open-project:focus-visible,
+.filter:focus-visible { outline: 2px solid rgba(112,184,255,.9); outline-offset: 3px; }
+
+.filters { gap: 6px !important; }
+.filter {
+  position: relative;
+  overflow: hidden;
+  min-height: 27px;
+  padding: 5px 11px !important;
+  border: 1px solid rgba(255,255,255,.105) !important;
+  border-radius: 6px !important;
+  color: #aeb6c1 !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.018)) !important;
+  font-size: 9px !important;
+  font-weight: 550 !important;
+  letter-spacing: .015em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
+  transition: color .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease, transform .22s ease;
+}
+.filter::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(110deg, transparent 15%, rgba(255,255,255,.11) 48%, transparent 80%);
+  transform: translateX(-110%);
+  transition: transform .55s ease, opacity .2s ease;
+  pointer-events: none;
+}
+.filter:hover {
+  color: #f0f5fb !important;
+  border-color: rgba(255,255,255,.24) !important;
+  background: rgba(255,255,255,.075) !important;
+  transform: translateY(-1px);
+}
+.filter:hover::after { opacity: 1; transform: translateX(110%); }
+.filter.active {
+  color: #dceeff !important;
+  border-color: rgba(91,166,235,.48) !important;
+  background: linear-gradient(135deg, rgba(31,91,145,.38), rgba(22,49,76,.42)) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.09), 0 2px 12px rgba(27,105,176,.12);
+}
+.filter.active::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #78bdff;
+  box-shadow: 0 0 8px rgba(120,189,255,.65);
+  transform: translateY(-50%);
+}
+.filter.active { padding-left: 15px !important; }
+.filter:active { transform: translateY(0) scale(.97); }
+
+@media (max-width: 600px) {
+  .detail-meta { align-items: stretch; gap: 7px !important; }
+  .detail-meta .detail-action { min-height: 35px; padding: 0 9px; font-size: 9px; }
+  .open-project { min-height: 33px; }
+  .filter { padding-left: 9px !important; padding-right: 9px !important; }
+  .filter.active { padding-left: 13px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .open-project, .open-project .action-icon, .detail-meta .detail-action,
+  .detail-meta .detail-action svg, .filter, .filter::after { transition: none !important; }
+  .open-project:hover, .detail-meta .detail-action:hover, .filter:hover { transform: none; }
+}
+
+/* Desktop toolbar: reserve a compact lane for search and protect the view switch. */
+@media (min-width: 851px) {
+  .toolbar {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .toolbar > .search-box {
+    flex: 0 1 190px;
+    width: 190px;
+    min-width: 135px;
+    max-width: 190px;
+  }
+
+  .toolbar-controls {
+    flex: 1 1 0;
+    min-width: 0;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .filters {
+    flex: 1 1 auto;
+    min-width: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+  }
+
+  .filters::-webkit-scrollbar { display: none; }
+
+  .view-toggle {
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+}
+
+/* Smaller monochrome experiment actions. */
+.project-heading .open-project {
+  min-height: 28px;
+  gap: 7px;
+  padding: 0 9px !important;
+  border-color: rgba(255,255,255,.22) !important;
+  border-radius: 5px !important;
+  color: #f2f2f2 !important;
+  background: rgba(255,255,255,.055) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+  font-size: 8px !important;
+}
+
+.project-heading .open-project:hover {
+  color: #090909 !important;
+  border-color: #fff !important;
+  background: #f1f1f1 !important;
+  box-shadow: 0 4px 14px rgba(255,255,255,.10);
+}
+
+.project-heading .open-project:active {
+  color: #fff !important;
+  background: #242424 !important;
+}
+
+@media (max-width: 850px) {
+  .project-heading .open-project {
+    min-height: 27px;
+    padding: 0 8px !important;
+  }
+}
+
+/* Keep category pills and experiment actions anchored during interaction. */
+.filter,
+.filter:hover,
+.filter:active {
+  transform: none !important;
+}
+
+/* Reserve the active-category indicator space so selecting a category
+does not change the pill's width or nudge its neighbours. */
+.filter,
+.filter.active {
+  padding-left: 15px !important;
+}
+
+.project-heading .open-project,
+.project-heading .open-project:hover,
+.project-heading .open-project:active {
+  transform: none !important;
+}
+
+.project-heading .open-project {
+  position: relative;
+  overflow: hidden;
+  transition: color .22s ease, background .22s ease, border-color .22s ease,
+              box-shadow .22s ease !important;
+}
+
+/* Match the category-pill hover treatment on Open Experiment. */
+.project-heading .open-project::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(110deg, transparent 15%, rgba(255,255,255,.11) 48%, transparent 80%);
+  transform: translateX(-110%);
+  transition: transform .55s ease, opacity .2s ease;
+  pointer-events: none;
+}
+
+.project-heading .open-project:hover {
+  color: #f0f5fb !important;
+  border-color: rgba(255,255,255,.24) !important;
+  background: rgba(255,255,255,.075) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
+  transform: none !important;
+}
+
+.project-heading .open-project:hover::after {
+  opacity: 1;
+  transform: translateX(110%);
+}
+
+.project-heading .open-project:active {
+  color: #fff !important;
+  border-color: rgba(255,255,255,.22) !important;
+  background: rgba(255,255,255,.045) !important;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,.035);
+}

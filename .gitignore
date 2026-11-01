@@ -1,5 +1,10 @@
 dist/
 node_modules/
-projects_/
+projects__/
+projects__/Axiom/
+projects__/Boxwit/
+projects__/Drone Fleet Optimization/
+projects__/Phisherman/
+projects__/SynchroGrid/
 *.zip
 *.ini

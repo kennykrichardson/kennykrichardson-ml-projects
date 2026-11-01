@@ -1,13 +1,82 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Character encoding and responsive layout -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0d1117" />
-    <meta name="author" content="Kenny Richardson, kennykrichardson, Kenny Richardson Kodipally" />
-    <meta name="description" content="Machine learning experiments, research notebooks, and engineering projects by Kenny Richardson." />
-    <title>ML projects • Kenny Richardson</title>
+
+    <!-- Primary SEO -->
+    <title>Kenny Richardson • ML Projects</title>
+    <meta
+      name="description"
+      content="Explore machine learning experiments, research notebooks, simulations, and engineering projects by Kenny Richardson."
+    />
+    <meta
+      name="keywords"
+      content="Kenny Richardson, kennykrichardson, Kenny Richardson Kodipally, Machine Learning, Artificial Intelligence, ML Projects, Python, AI Engineering, Research Notebooks, Experiments"
+    />
+    <meta
+      name="author"
+      content="Kenny Richardson, kennykrichardson, Kenny Richardson Kodipally"
+    />
+    <meta name="creator" content="Kenny Richardson" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Site icons -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kenny Richardson's ML Projects" />
+    <meta property="og:title" content="Kenny Richardson • ML Projects" />
+    <meta
+      property="og:description"
+      content="Machine learning experiments, research notebooks, simulations, and engineering projects by Kenny Richardson."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Kenny Richardson's ML Projects"
+    />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kenny Richardson • ML Projects" />
+    <meta
+      name="twitter:description"
+      content="Explore machine learning experiments, research notebooks, simulations, and engineering projects by Kenny Richardson."
+    />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <!-- Structured data: ML project collection and creator identity -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Kenny Richardson's ML Projects",
+        "description": "Machine learning experiments, research notebooks, simulations, and engineering projects by Kenny Richardson.",
+        "author": {
+          "@type": "Person",
+          "name": "Kenny Richardson",
+          "alternateName": [
+            "kennykrichardson",
+            "Kenny Richardson Kodipally"
+          ],
+          "sameAs": [
+            "https://github.com/kennykrichardson",
+            "https://linkedin.com/in/kennykrichardson"
+          ]
+        }
+      }
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

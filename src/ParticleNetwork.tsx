@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, type CSSProperties } from "react";
 
 export type ParticleNetworkProps = {
@@ -36,9 +35,7 @@ const clamp = (value: number, min: number, max: number) => Math.max(min, Math.mi
 
 function createParticles(width: number, height: number, density: number): Particle[] {
   const area = width * height;
-
-  // Approximately 20% more particles than the original configuration.
-  const count = Math.round(clamp((area / 10500) * density * 1.2, 77, 264));
+  const count = Math.round(clamp((area / 10500) * density, 64, 220));
 
   // A mixture of broad clusters and free points creates irregular, organic meshes
   // instead of a regular grid or a uniform constellation.
@@ -55,11 +52,9 @@ function createParticles(width: number, height: number, density: number): Partic
 
     if (Math.random() < 0.72) {
       const cluster = clusters[index % clusters.length];
-
       // Approximate a soft gaussian with the sum of random values.
       const gx = (Math.random() + Math.random() + Math.random() + Math.random() - 2);
       const gy = (Math.random() + Math.random() + Math.random() + Math.random() - 2);
-
       x = cluster.x + gx * cluster.spreadX;
       y = cluster.y + gy * cluster.spreadY;
     } else {
@@ -69,7 +64,6 @@ function createParticles(width: number, height: number, density: number): Partic
 
     const angle = random(0, Math.PI * 2);
     const velocity = random(5.5, 13.5);
-
     return {
       x: clamp(x, 0, width),
       y: clamp(y, 0, height),
@@ -92,7 +86,6 @@ function buildEdges(particles: Particle[], maxDistance: number): Edge[] {
 
     for (let j = 0; j < particles.length; j++) {
       if (i === j) continue;
-
       const b = particles[j];
       const dx = a.x - b.x;
       const dy = a.y - b.y;
@@ -105,15 +98,13 @@ function buildEdges(particles: Particle[], maxDistance: number): Edge[] {
 
     nearby.sort((left, right) => left.distance - right.distance);
 
-    // Approximately 20% more connections than the original average.
-    // Four links are used most of the time, with occasional three-link joints.
-    const linkCount = Math.random() < 0.9 ? 4 : 3;
-
+    // Three nearest links form the base mesh. A fourth, occasional link gives
+    // the larger, asymmetric triangles seen in the visual reference.
+    const linkCount = Math.random() < 0.24 ? 4 : 3;
     for (const neighbour of nearby.slice(0, linkCount)) {
       const low = Math.min(i, neighbour.index);
       const high = Math.max(i, neighbour.index);
       const key = `${low}:${high}`;
-
       if (!edges.has(key)) {
         edges.set(key, { a: low, b: high, distance: neighbour.distance });
       }
@@ -190,7 +181,6 @@ export default function ParticleNetwork({
       const nextHeight = Math.max(1, bounds.height || window.innerHeight);
       const oldWidth = width;
       const oldHeight = height;
-
       width = nextWidth;
       height = nextHeight;
       pixelRatio = Math.min(window.devicePixelRatio || 1, 1.75);
@@ -203,7 +193,6 @@ export default function ParticleNetwork({
       if (particles.length && oldWidth > 1 && oldHeight > 1) {
         const sx = width / oldWidth;
         const sy = height / oldHeight;
-
         particles.forEach(particle => {
           particle.x *= sx;
           particle.y *= sy;
@@ -214,7 +203,6 @@ export default function ParticleNetwork({
 
       cachedEdges = [];
       lastEdgeBuild = 0;
-
       if (!isAnimating) drawFrame(performance.now(), true);
     };
 
@@ -227,7 +215,6 @@ export default function ParticleNetwork({
       const delta = previousTime
         ? Math.min((time - previousTime) / 1000, 0.04)
         : 0;
-
       previousTime = time;
 
       if (!staticFrame && isAnimating) {
@@ -239,7 +226,6 @@ export default function ParticleNetwork({
 
           // Softly wrap points across the edges so the network never visibly resets.
           const margin = 24;
-
           if (particle.x < -margin) particle.x = width + margin;
           if (particle.x > width + margin) particle.x = -margin;
           if (particle.y < -margin) particle.y = height + margin;
@@ -247,14 +233,12 @@ export default function ParticleNetwork({
 
           // A tiny curved drift makes the network feel alive without looking busy.
           const drift = Math.sin(elapsed * 0.38 + particle.phase) * 2.2;
-
           particle.x += drift * delta;
           particle.y += Math.cos(elapsed * 0.31 + particle.phase) * 1.5 * delta;
         }
       }
 
       const now = time;
-
       if (cachedEdges.length === 0 || now - lastEdgeBuild > 100) {
         cachedEdges = buildEdges(particles, getConnectionDistance());
         lastEdgeBuild = now;
@@ -276,50 +260,38 @@ export default function ParticleNetwork({
         context.fill();
       }
 
-      // Draw hairline connections in three distance bands.
-      // The denser mesh creates more geometric intersections and triangles.
+      // Draw hairline connections in three distance bands. Nearby links read crisp;
+      // longer links recede gently, creating the layered geometric-web effect.
       context.lineWidth = 0.72;
       context.lineCap = "round";
-
       const linkRange = getConnectionDistance();
-
       const bands = [
         { limit: 0.44, alpha: 0.48 },
         { limit: 0.74, alpha: 0.31 },
         { limit: 1.0, alpha: 0.18 },
       ];
-
       let previousLimit = 0;
-
       for (const band of bands) {
         context.beginPath();
-
         for (const edge of cachedEdges) {
           const normalized = edge.distance / linkRange;
-
           if (normalized <= previousLimit || normalized > band.limit) continue;
-
           const a = particles[edge.a];
           const b = particles[edge.b];
-
           context.moveTo(a.x, a.y);
           context.lineTo(b.x, b.y);
         }
-
         context.strokeStyle = `rgba(222, 233, 250, ${opacity * band.alpha})`;
         context.stroke();
-
         previousLimit = band.limit;
       }
 
-      // A sparse set of brighter joints gives the network crisp white pinpoints.
+      // A sparse set of brighter joints gives the network the crisp white pinpoints
+      // in the reference image.
       for (let i = 0; i < particles.length; i++) {
         const particle = particles[i];
-
         if (i % 3 !== 0) continue;
-
         const shimmer = 0.68 + 0.32 * Math.sin(elapsed * 1.1 + particle.phase);
-
         context.beginPath();
         context.arc(particle.x, particle.y, particle.radius * 1.12, 0, Math.PI * 2);
         context.fillStyle = `rgba(255, 255, 255, ${opacity * shimmer})`;
@@ -337,7 +309,6 @@ export default function ParticleNetwork({
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     isAnimating = !reducedMotion.matches;
-
     if (isAnimating) {
       frameId = window.requestAnimationFrame(next => drawFrame(next));
     } else {
@@ -348,7 +319,6 @@ export default function ParticleNetwork({
       window.cancelAnimationFrame(frameId);
       previousTime = 0;
       isAnimating = !event.matches;
-
       if (isAnimating) {
         frameId = window.requestAnimationFrame(next => drawFrame(next));
       } else {
@@ -369,7 +339,6 @@ export default function ParticleNetwork({
   return (
     <>
       <style>{componentStyles}</style>
-
       <div
         className={`particle-network${className ? ` ${className}` : ""}`}
         style={style}
