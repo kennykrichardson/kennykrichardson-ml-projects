@@ -1,0 +1,106 @@
+2026-08-10 21:34:39,860 | INFO | Boxwit pipeline started.
+2026-08-10 21:34:39,861 | INFO | Loading dataset: data\processed\boxwit_100k.csv
+2026-08-10 21:34:40,596 | INFO | Loaded 100000 rows.
+2026-08-10 21:34:41,092 | INFO | Feature matrix created: 100000 rows, 9 features.
+2026-08-10 21:34:41,176 | INFO | Train/test split: 80000/20000.
+2026-08-10 21:34:44,304 | INFO | Random Forest training completed.
+2026-08-10 21:34:44,720 | INFO | Metrics saved to metrics.json.
+2026-08-10 21:34:44,720 | INFO | Pipeline completed in 4.861 seconds.
+2026-08-10 21:46:26,487 | INFO | Boxwit pipeline started.
+2026-08-10 21:46:26,488 | INFO | Loading dataset: data\processed\boxwit_100k.csv
+2026-08-10 21:46:27,061 | INFO | Loaded 100000 rows.
+2026-08-10 21:46:27,775 | INFO | Feature engineering completed.
+2026-08-10 21:46:27,775 | INFO | Numeric features: 9
+2026-08-10 21:46:27,775 | INFO | Categorical features: 2
+2026-08-10 21:46:27,861 | INFO | Train/test split: 80000/20000.
+2026-08-10 21:46:27,861 | INFO | Training Random Forest with 300 trees.
+2026-08-10 21:46:43,966 | INFO | Model training completed.
+2026-08-10 21:46:44,611 | INFO | Model saved to model.joblib.
+2026-08-10 21:46:44,613 | INFO | Metrics saved to metrics.json.
+2026-08-10 21:46:44,613 | INFO | Pipeline completed in 18.125 seconds.
+2026-08-10 21:48:47,651 | INFO | Boxwit pipeline started.
+2026-08-10 21:48:47,653 | INFO | Loading dataset: data\processed\boxwit_100k.csv
+2026-08-10 21:48:48,207 | INFO | Loaded 100000 rows.
+2026-08-10 21:48:48,889 | INFO | Feature engineering completed.
+2026-08-10 21:48:48,889 | INFO | Numeric features: 11
+2026-08-10 21:48:48,889 | INFO | Categorical features: 2
+2026-08-10 21:48:48,977 | INFO | Train/test split: 80000/20000.
+2026-08-10 21:48:48,977 | INFO | Training random_forest with 300 trees.
+2026-08-10 21:49:02,934 | INFO | Model training completed.
+2026-08-10 21:49:04,387 | INFO | Model saved to model.joblib.
+2026-08-10 21:49:04,389 | INFO | Metrics saved to metrics.json.
+2026-08-10 21:49:04,389 | INFO | Pipeline completed in 16.737 seconds.
+2026-08-10 21:51:51,158 | INFO | Boxwit pipeline started.
+2026-08-10 21:51:51,161 | INFO | Loading dataset: data\processed\boxwit_100k.csv
+2026-08-10 21:51:51,721 | INFO | Loaded 100000 rows.
+2026-08-10 21:51:52,433 | INFO | Feature engineering completed.
+2026-08-10 21:51:52,433 | INFO | Numeric features: 9
+2026-08-10 21:51:52,433 | INFO | Categorical features: 2
+2026-08-10 21:51:52,489 | INFO | Train/test split: 80000/20000.
+2026-08-10 21:51:52,489 | INFO | Training Random Forest with 300 trees.
+2026-08-10 21:52:07,819 | INFO | Model training completed.
+2026-08-10 21:52:08,428 | INFO | Model saved to model.joblib.
+2026-08-10 21:52:08,430 | INFO | Metrics saved to metrics.json.
+2026-08-10 21:52:08,430 | INFO | Pipeline completed in 17.271 seconds.
+2026-08-10 21:54:05,903 | INFO | Boxwit pipeline started.
+2026-08-10 21:54:05,903 | INFO | Loading dataset: data\processed\boxwit_100k.csv
+2026-08-10 21:54:06,571 | INFO | Loaded 100000 rows.
+2026-08-10 21:54:07,329 | INFO | Feature engineering completed.
+2026-08-10 21:54:07,329 | INFO | Numeric features: 9
+2026-08-10 21:54:07,329 | INFO | Categorical features: 2
+2026-08-10 21:54:07,377 | INFO | Train/test split: 80000/20000.
+2026-08-10 21:54:07,377 | INFO | Training Random Forest with 300 trees.
+2026-08-10 21:54:21,660 | INFO | Model training completed.
+2026-08-10 21:54:22,273 | INFO | Model saved to model.joblib.
+2026-08-10 21:54:22,274 | INFO | Metrics saved to metrics.json.
+2026-08-10 21:54:22,274 | INFO | Pipeline completed in 16.370 seconds.
+2026-08-10 21:58:14,603 | INFO | Boxwit pipeline started.
+2026-08-10 21:58:14,607 | INFO | Loading dataset: data\processed\boxwit_100k.csv
+2026-08-10 21:58:15,250 | INFO | Loaded 100000 rows.
+2026-08-10 21:58:16,036 | INFO | Feature engineering completed.
+2026-08-10 21:58:16,036 | INFO | Numeric features: 9
+2026-08-10 21:58:16,036 | INFO | Categorical features: 2
+2026-08-10 21:58:16,153 | INFO | Train/test split: 80000/20000.
+2026-08-10 21:58:16,153 | INFO | Training Random Forest with 300 trees.
+2026-08-10 21:58:29,996 | INFO | Model training completed.
+2026-08-10 21:58:30,714 | INFO | Model saved to model.joblib.
+2026-08-10 21:58:30,715 | INFO | Metrics saved to metrics.json.
+2026-08-10 21:58:30,715 | INFO | Pipeline completed in 16.110 seconds.
+2026-08-10 22:01:43,665 | INFO | Boxwit pipeline started.
+2026-08-10 22:01:43,665 | INFO | Loading dataset: data\processed\boxwit_100k.csv
+2026-08-10 22:01:44,230 | INFO | Loaded 100000 rows.
+2026-08-10 22:01:44,932 | INFO | Feature engineering completed.
+2026-08-10 22:01:44,932 | INFO | Numeric features: 9
+2026-08-10 22:01:44,932 | INFO | Categorical features: 2
+2026-08-10 22:01:44,996 | INFO | Train/test split: 80000/20000.
+2026-08-10 22:01:44,996 | INFO | Training Random Forest with 300 trees.
+2026-08-10 22:01:58,070 | INFO | Model training completed.
+2026-08-10 22:01:58,583 | INFO | Model saved to model.joblib.
+2026-08-10 22:01:58,584 | INFO | Metrics saved to metrics.json.
+2026-08-10 22:01:58,584 | INFO | Pipeline completed in 14.918 seconds.
+2026-08-10 22:08:55,287 | INFO | Boxwit pipeline started.
+2026-08-10 22:08:55,289 | INFO | Loading dataset: data\processed\boxwit_100k.csv
+2026-08-10 22:08:55,861 | INFO | Loaded 100000 rows.
+2026-08-10 22:08:55,861 | INFO | Dataset validation passed: 100000 rows, 16 columns.
+2026-08-10 22:08:56,548 | INFO | Feature engineering completed.
+2026-08-10 22:08:56,548 | INFO | Numeric features: 9
+2026-08-10 22:08:56,548 | INFO | Categorical features: 2
+2026-08-10 22:08:56,617 | INFO | Train/test split: 80000/20000.
+2026-08-10 22:08:56,617 | INFO | Training Random Forest with 300 trees.
+2026-08-10 22:09:10,847 | INFO | Model training completed.
+2026-08-10 22:09:11,519 | INFO | Model saved to model.joblib.
+2026-08-10 22:09:11,520 | INFO | Metrics saved to metrics.json.
+2026-08-10 22:09:11,520 | INFO | Pipeline completed in 16.233 seconds.
+2026-08-10 22:14:04,895 | INFO | Boxwit pipeline started.
+2026-08-10 22:14:04,898 | INFO | Loading dataset: data\processed\boxwit_100k.csv
+2026-08-10 22:14:05,498 | INFO | Loaded 100000 rows.
+2026-08-10 22:14:05,498 | INFO | Dataset validation passed: 100000 rows, 16 columns.
+2026-08-10 22:14:06,210 | INFO | Feature engineering completed.
+2026-08-10 22:14:06,210 | INFO | Numeric features: 9
+2026-08-10 22:14:06,211 | INFO | Categorical features: 2
+2026-08-10 22:14:06,279 | INFO | Train/test split: 80000/20000.
+2026-08-10 22:14:06,279 | INFO | Training Random Forest with 300 trees.
+2026-08-10 22:14:19,763 | INFO | Model training completed.
+2026-08-10 22:14:20,423 | INFO | Model saved to model.joblib.
+2026-08-10 22:14:20,423 | INFO | Metrics saved to metrics.json.
+2026-08-10 22:14:20,423 | INFO | Pipeline completed in 15.528 seconds.

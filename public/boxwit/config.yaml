@@ -1,0 +1,42 @@
+project:
+  name: Boxwit
+  version: "1.0"
+
+data:
+  source: "data/processed/boxwit_100k.csv"
+  target: "target"
+
+features:
+  numeric:
+    - release_year
+    - runtime
+    - log_budget
+    - genre_count
+    - country_count
+    - company_count
+    - cast_count
+    - writer_count
+    - has_director
+    - has_budget
+    - release_decade
+
+  categorical:
+    - original_language
+    - genres
+
+experiment:
+  id: "exp-002"
+  name: "categorical-random-forest"
+  description: "Random Forest using engineered numeric features plus original language and genres."
+
+model:
+  type: "random_forest"
+  n_estimators: 300
+  class_weight: "balanced"
+  min_samples_leaf: 2
+  max_features: "sqrt"
+  test_size: 0.2
+  random_state: 42
+
+training:
+  random_state: 42
