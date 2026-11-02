@@ -1,6 +1,5 @@
 import ParticleNetwork from "./ParticleNetwork";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { Link, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, ChevronUp, BookOpen, Code2, FileCode2, Search, LayoutGrid, List, Github, NotebookText, ExternalLink } from "lucide-react";
 import { createPortal } from "react-dom";
 import ReactMarkdown from "react-markdown";
@@ -63,12 +62,12 @@ function Header() {
   </header>;
 }
 
-function ProjectRow({ project, view }: { project: Project; view: "list" | "grid" }) {
+function ProjectRow({ project, view, onOpen }: { project: Project; view: "list" | "grid"; onOpen: (id: string) => void }) {
   const isNotebook = project.type === "Jupyter Notebook";
   return <article className={`project-row ${view === "grid" ? "project-card" : ""}`}>
     <div className="project-heading">
-      <Link to={`/project/${project.id}`} className="project-title">{project.name}</Link>
-      <Link className="open-project" to={`/project/${project.id}`}><span>Open experiment</span><ExternalLink className="action-icon" size={14} strokeWidth={2.1}/></Link>
+      <button type="button" onClick={() => onOpen(project.id)} className="project-title project-open-button" style={{ appearance: "none", background: "none", border: 0, padding: 0, font: "inherit", color: "inherit", textAlign: "inherit", cursor: "pointer" }}>{project.name}</button>
+      <button type="button" className="open-project project-open-button" style={{ appearance: "none", background: "none", border: 0, padding: 0, font: "inherit", color: "inherit", textAlign: "inherit", cursor: "pointer" }} onClick={() => onOpen(project.id)}><span>Open experiment</span><ExternalLink className="action-icon" size={14} strokeWidth={2.1}/></button>
     </div>
     <p className="description">{project.category} · {project.language}</p>
     <p className="project-summary">{project.description}</p>
@@ -81,7 +80,7 @@ function ProjectRow({ project, view }: { project: Project; view: "list" | "grid"
   </article>;
 }
 
-function Home() {
+function Home({ onOpen }: { onOpen: (id: string) => void }) {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("All");
   const [view, setView] = useState<"list" | "grid">("list");
@@ -125,7 +124,7 @@ function Home() {
         aria-live="polite"
       >
         <div className={`project-list ${view === "grid" ? "project-grid" : "project-list-mode"}`} ref={listRef} key={`${filter}-${query}-${view}`}>
-          {filtered.map(project => <ProjectRow key={project.id} project={project} view={view} />)}
+          {filtered.map(project => <ProjectRow key={project.id} project={project} view={view} onOpen={onOpen} />)}
           {filtered.length === 0 && <div className="empty">No experiments match your search.</div>}
         </div>
       </div>
@@ -359,16 +358,12 @@ function ScrollToTopButton() {
   );
 }
 
-function ProjectDetail() {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const project = projects.find(p => p.id === id);
-  if (!project) return <div className="page-shell"><Header/><div className="not-found"><h2>Project not found</h2><Link to="/">Back to projects</Link></div></div>;
+function ProjectDetail({ project, onBack }: { project: Project; onBack: () => void }) {
   const notebook = project.type === "Jupyter Notebook";
   return <div className="page-shell detail-shell">
     <Header/>
     <main>
-      <button className="back-link" onClick={() => navigate(-1)}><ArrowLeft size={14}/> Back to projects</button>
+      <button className="back-link" onClick={onBack}><ArrowLeft size={14}/> Back to projects</button>
       <div className="detail-heading">
         <div className="detail-title-line"><h1>{project.name}</h1></div>
         <p>{project.description}</p>
@@ -384,19 +379,52 @@ function ProjectDetail() {
       {notebook ? <NotebookViewer file={project.file!}/> : <PythonViewer file={project.file!}/>}
       <ScrollToTopButton />
     </main>
-    <footer className="footer"><span>⚛ Kenny Richardson's ML Projects • </span><Link to="/">All projects</Link></footer>
+    <footer className="footer"><span>⚛ Kenny Richardson's ML Projects • </span><button type="button" className="footer-home-button" style={{ appearance: "none", background: "none", border: 0, padding: 0, font: "inherit", color: "inherit", textAlign: "inherit", cursor: "pointer" }} onClick={onBack}>All projects</button></footer>
   </div>;
 }
 
 export default function App() {
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+
+  // Keep project navigation entirely in-page. A same-URL history entry lets
+  // the browser Back button close the project without changing the address.
+  useEffect(() => {
+    const handlePopState = () => {
+      const state = window.history.state;
+      setSelectedProjectId(state?.mlProjectsView === "detail" ? state.projectId ?? null : null);
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  const openProject = (id: string) => {
+    window.history.pushState(
+      { ...(window.history.state ?? {}), mlProjectsView: "detail", projectId: id },
+      "",
+      window.location.pathname + window.location.search + window.location.hash
+    );
+    setSelectedProjectId(id);
+    window.scrollTo({ top: 0, behavior: "auto" });
+  };
+
+  const closeProject = () => {
+    if (window.history.state?.mlProjectsView === "detail") {
+      window.history.back();
+    } else {
+      setSelectedProjectId(null);
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  };
+
+  const selectedProject = projects.find(project => project.id === selectedProjectId) ?? null;
+
   return (
     <>
       <ParticleNetwork opacity={0.9} speed={0.65} density={1} />
       <div className="particle-network-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/project/:id" element={<ProjectDetail />} />
-        </Routes>
+        {selectedProject
+          ? <ProjectDetail project={selectedProject} onBack={closeProject} />
+          : <Home onOpen={openProject} />}
       </div>
     </>
   );
