@@ -1,4 +1,5 @@
 import ParticleNetwork from "./ParticleNetwork";
+import { NeuralLink } from "./NeuralLink";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, ChevronUp, BookOpen, Code2, FileCode2, Search, LayoutGrid, List, Github, NotebookText, ExternalLink } from "lucide-react";
 import { createPortal } from "react-dom";
@@ -420,8 +421,24 @@ export default function App() {
 
   return (
     <>
-      <ParticleNetwork opacity={0.9} speed={0.65} density={1} />
+      <ParticleNetwork opacity={0.9} speed={0.65} density={1.38} />
       <div className="particle-network-content">
+        {!selectedProject && <>
+          <NeuralLink
+            href="https://kennykrichardson.onrender.com"
+            label="Complete Portfolio"
+            index="01"
+            image="/neural-link-left.png"
+            side="left"
+          />
+          <NeuralLink
+            href="https://kennykrichardson-ml.onrender.com"
+            label="AI Portfolio"
+            index="02"
+            image="/neural-link-right.png"
+            side="right"
+          />
+        </>}
         {selectedProject
           ? <ProjectDetail project={selectedProject} onBack={closeProject} />
           : <Home onOpen={openProject} />}

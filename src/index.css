@@ -882,3 +882,97 @@ does not change the pill's width or nudge its neighbours. */
   background: rgba(255,255,255,.045) !important;
   box-shadow: inset 0 1px 2px rgba(255,255,255,.035);
 }
+/* NeuralLink side visuals: transparent artwork, floating motion, no card chrome. */
+.neural-link {
+  position: fixed;
+  z-index: 5;
+  top: calc(50% - 118px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: clamp(132px, 18vw, 218px);
+  gap: 10px;
+  color: rgba(245, 247, 250, .9);
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  outline-offset: 6px;
+}
+.neural-link--left { left: clamp(12px, 1.4vw, 26px); }
+.neural-link--right { right: clamp(12px, 1.4vw, 26px); }
+.neural-link__visual {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: visible;
+  isolation: isolate;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  animation: neural-link-float 6.2s ease-in-out infinite;
+}
+.neural-link--right .neural-link__visual { animation-delay: -2.7s; }
+.neural-link__visual canvas {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: transparent;
+  pointer-events: none;
+}
+.neural-link__image {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: .56;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transition: opacity .3s ease, transform .3s ease;
+}
+.neural-link:hover .neural-link__image,
+.neural-link:focus-visible .neural-link__image { opacity: .78; transform: scale(1.035); }
+.neural-link__caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 22px;
+  padding: 0;
+  color: rgba(245, 247, 250, .82);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .045em;
+  text-align: center;
+  white-space: nowrap;
+}
+.neural-link__number { color: rgba(255, 255, 255, .42); font: 9px "JetBrains Mono", monospace; }
+.neural-link__label { color: inherit; }
+.neural-link__arrow { color: rgba(255, 255, 255, .58); font-size: 13px; transition: transform .25s ease, color .25s ease; }
+.neural-link:hover .neural-link__arrow { color: #fff; transform: translate(3px, -2px); }
+.neural-link:focus-visible { outline: 1px solid rgba(255,255,255,.65); }
+@keyframes neural-link-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -11px, 0); }
+}
+@media (max-width: 760px) {
+  .neural-link { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .neural-link__visual { animation: none; }
+  .neural-link__image, .neural-link__arrow { transition: none; }
+}
