@@ -16,4 +16,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://ai.kennykrichardson.com/sitemap.xml
+Sitemap: https://ml.kennykrichardson.com/sitemap.xml
