@@ -432,7 +432,7 @@ export default function App() {
             side="left"
           />
           <NeuralLink
-            href="https://kennykrichardson-ml.onrender.com"
+            href="https://kennykrichardson-ai.onrender.com"
             label="AI Portfolio"
             index="02"
             image="/neural-link-right.png"
