@@ -425,14 +425,14 @@ export default function App() {
       <div className="particle-network-content">
         {!selectedProject && <>
           <NeuralLink
-            href="https://kennykrichardson.onrender.com"
+            href="https://kennykrichardson.com"
             label="Complete Portfolio"
             index="01"
             image="/neural-link-left.png"
             side="left"
           />
           <NeuralLink
-            href="https://kennykrichardson-ai.onrender.com"
+            href="https://ai.kennykrichardson.com"
             label="AI Portfolio"
             index="02"
             image="/neural-link-right.png"
