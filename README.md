@@ -1,5 +1,11 @@
 # ⬡ My ML Projects
 
+Check out my ML Projects here:
+
+```bash
+https://ml.kennykrichardson.com
+```
+
 A curated collection of machine learning and AI engineering projects by **Kenny Richardson**.
 
 > ⚛️ A collection of machine learning projects exploring classification, optimization, multi-agent simulation, adversarial reasoning, and MLOps. Built to experiment, solve practical problems, and turn ideas into working systems.
