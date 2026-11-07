@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0d1117" />
 
+    <!-- Legacy-host fallback redirect.
+         Configure a real HTTP 301 redirect at the hosting layer as well. -->
     <script>
-      // Redirect from the old domain to the new domain
       if (window.location.hostname === "kennykrichardson-ml.onrender.com") {
         window.location.replace(
           "https://ml.kennykrichardson.com" +
@@ -18,15 +19,17 @@
       }
     </script>
 
+    <!-- Google Search Console verification -->
+    <meta
+      name="google-site-verification"
+      content="wdpJILycECpySr05_4fzGhK5r75ombkyNRIyUVb9jv8"
+    />
+
     <!-- Primary SEO -->
     <title>Kenny Richardson • ML Projects</title>
     <meta
       name="description"
       content="Explore machine learning experiments, research notebooks, simulations, and engineering projects by Kenny Richardson."
-    />
-    <meta
-      name="google-site-verification"
-      content="wdpJILycECpySr05_4fzGhK5r75ombkyNRIyUVb9jv8"
     />
     <meta
       name="keywords"
@@ -37,23 +40,35 @@
       content="Kenny Richardson, kennykrichardson, Kenny Richardson Kodipally"
     />
     <meta name="creator" content="Kenny Richardson" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ml.kennykrichardson.com/" />
 
     <!-- Site icons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/favicon.png"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Kenny Richardson's ML Projects" />
+    <meta property="og:url" content="https://ml.kennykrichardson.com/" />
     <meta property="og:title" content="Kenny Richardson • ML Projects" />
     <meta
       property="og:description"
       content="Machine learning experiments, research notebooks, simulations, and engineering projects by Kenny Richardson."
     />
-    <meta property="og:image" content="/og-image.png" />
+    <meta
+      property="og:image"
+      content="https://ml.kennykrichardson.com/og-image.png"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
@@ -68,7 +83,10 @@
       name="twitter:description"
       content="Explore machine learning experiments, research notebooks, simulations, and engineering projects by Kenny Richardson."
     />
-    <meta name="twitter:image" content="/og-image.png" />
+    <meta
+      name="twitter:image"
+      content="https://ml.kennykrichardson.com/og-image.png"
+    />
 
     <!-- Structured data: ML project collection and creator identity -->
     <script type="application/ld+json">
@@ -76,6 +94,7 @@
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": "Kenny Richardson's ML Projects",
+        "url": "https://ml.kennykrichardson.com/",
         "description": "Machine learning experiments, research notebooks, simulations, and engineering projects by Kenny Richardson.",
         "author": {
           "@type": "Person",
@@ -84,6 +103,7 @@
             "kennykrichardson",
             "Kenny Richardson Kodipally"
           ],
+          "url": "https://kennykrichardson.com/",
           "sameAs": [
             "https://github.com/kennykrichardson",
             "https://linkedin.com/in/kennykrichardson"
