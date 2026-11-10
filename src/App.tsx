@@ -42,7 +42,7 @@ const projects: Project[] = [
     id: "boxwit", name: "Boxwit ML-Ops Pipeline",
     description: "A reproducible machine-learning pipeline that predicts whether a movie is likely to receive an IMDb rating of 7.0 or higher, with feature engineering and model evaluation.",
     language: "Python · Scikit-learn", type: "Jupyter Notebook", category: "MLOps",
-    file: "boxwit-run.py", repo: "BoxWit-MLOps-Pipeline",
+    file: "boxwit.ipynb", repo: "BoxWit-MLOps-Pipeline",
     topics: ["Random Forest", "Feature Engineering", "MLOps"]
   },
   {
