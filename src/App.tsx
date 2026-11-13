@@ -20,7 +20,8 @@ const projects: Project[] = [
   {
     id: "proximalflap", name: "Proximal Flap - Autonomous Flight PPO",
     description: "Flappy Bird simulation featuring a PPO-trained reinforcement learning agent for autonomous flight, procedural obstacle generation and intelligent decision making.",
-    language: "Python · Multi-Agent Systems", type: "Jupyter Notebook", category: "Simulation",  notebookUrl:"https://raw.githubusercontent.com/kennykrichardson/Proximal-Flap-Autonomous-Flight-PPO/main/main.py", repo: "Proximal-Flap-Autonomous-Flight-PPO",
+    language: "Python · Multi-Agent Systems", type: "Jupyter Notebook", category: "Simulation",
+    file: "proximalflap.ipynb", repo: "Proximal-Flap-Autonomous-Flight-PPO",
     topics: ["Reinforcement Learning", "Proximal Policy Optimization", "Agentic Simulation"]
   },
   {
