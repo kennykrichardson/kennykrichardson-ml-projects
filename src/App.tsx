@@ -25,35 +25,35 @@ const projects: Project[] = [
     topics: ["Reinforcement Learning", "Proximal Policy Optimization", "Agentic Simulation"]
   },
   {
-    id: "synchrogrid", name: "SynchroGrid Multi-Agent Traffic Optimization",
+    id: "synchrogrid", name: "SynchroGrid - Multi-Agent Traffic Optimization",
     description: "Adaptive multi-agent traffic simulation comparing fixed, adaptive, and pressure-based traffic control strategies, including congestion, routing, and emergency vehicles.",
     language: "Python · Multi-Agent Systems", type: "Jupyter Notebook", category: "Simulation",
     file: "SynchroGrid.ipynb", repo: "SynchroGrid-Multi-Agent-Traffic-Optimization",
     topics: ["Multi-Agent Systems", "Traffic Optimization", "Simulation"]
   },
   {
-    id: "axiom", name: "Axiom Adversarial Evidence Reconstruction Engine",
+    id: "axiom", name: "Axiom - Adversarial Evidence Reconstruction Engine",
     description: "A machine-learning and reasoning experiment that reconstructs coherent explanations from noisy, contradictory, duplicated, and adversarial evidence.",
     language: "Python · Machine Learning", type: "Jupyter Notebook", category: "Reasoning",
     file: "axiom.ipynb", repo: "Axiom-Adversarial-Evidence-Reconstruction-Engine",
     topics: ["Evidence Reconstruction", "Reasoning", "Adversarial Analysis"]
   },
   {
-    id: "phisherman", name: "Phisherman Phishing Website Detector",
+    id: "phisherman", name: "Phisherman - Phishing Website Detector",
     description: "A machine-learning project that uses URL feature engineering to identify potentially malicious websites and distinguish them from legitimate ones.",
     language: "Python · Scikit-learn", type: "Jupyter Notebook", category: "Classification",
     file: "Phishing_Website_Detector.ipynb", repo: "Phisherman-Phishing-Website-Detector",
     topics: ["Cybersecurity", "Classification", "Random Forest"]
   },
   {
-    id: "boxwit", name: "Boxwit ML-Ops Pipeline",
+    id: "boxwit", name: "Boxwit - ML-Ops Pipeline",
     description: "A reproducible machine-learning pipeline that predicts whether a movie is likely to receive an IMDb rating of 7.0 or higher, with feature engineering and model evaluation.",
     language: "Python · Scikit-learn", type: "Jupyter Notebook", category: "MLOps",
     file: "boxwit.ipynb", repo: "BoxWit-MLOps-Pipeline",
     topics: ["Random Forest", "Feature Engineering", "MLOps"]
   },
   {
-    id: "drone-fleet", name: "Drone-Fleet-Optimization",
+    id: "drone-fleet", name: "Drone Fleet Optimization",
     description: "An autonomous drone delivery simulation using RRT* path planning, payload constraints, randomized environments, and no-fly-zone avoidance.",
     language: "Python · Path Planning", type: "Jupyter Notebook", category: "Optimization",
     file: "DroneFleet_Optimizer.ipynb", repo: "Drone-Fleet-Optimization",

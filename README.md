@@ -12,27 +12,33 @@ A curated collection of machine learning and AI engineering projects by **Kenny 
 
 ## 🚀 Projects
 
-### 1. 🚦 [SynchroGrid: Multi-Agent Traffic Optimization](https://github.com/kennykrichardson/SynchroGrid-Multi-Agent-Traffic-Optimization)
+id: "proximalflap", name: "Proximal Flap - Autonomous Flight PPO",
+    description: "Flappy Bird simulation featuring a PPO-trained reinforcement learning agent for autonomous flight, procedural obstacle generation and intelligent decision making.",
+
+### 1. 🐤 [Proximal Flap: Autonomous Flight PPO](https://github.com/kennykrichardson/Proximal-Flap-Autonomous-Flight-PPO)
+Flappy Bird simulation featuring a PPO-trained reinforcement learning agent for autonomous flight, procedural obstacle generation and intelligent decision making.
+
+### 2. 🚦 [SynchroGrid: Multi-Agent Traffic Optimization](https://github.com/kennykrichardson/SynchroGrid-Multi-Agent-Traffic-Optimization)
 A multi-agent traffic optimization project focused on coordinating traffic flow and exploring intelligent, distributed decision-making.
 
 **🎯 Focus:** Multi-agent systems · Traffic optimization · Simulation
 
-### 2. ⚖️ [Axiom: Adversarial Evidence Reconstruction Engine](https://github.com/kennykrichardson/Axiom-Adversarial-Evidence-Reconstruction-Engine)
+### 3. ⚖️ [Axiom: Adversarial Evidence Reconstruction Engine](https://github.com/kennykrichardson/Axiom-Adversarial-Evidence-Reconstruction-Engine)
 An adversarial reasoning project centered on reconstructing and evaluating evidence through competing perspectives.
 
 **🎯 Focus:** Adversarial reasoning · Evidence analysis
 
-### 3. 🛡️ [Phisherman: Phishing Website Detector](https://github.com/kennykrichardson/Phisherman-Phishing-Website-Detector)
+### 4. 🛡️ [Phisherman: Phishing Website Detector](https://github.com/kennykrichardson/Phisherman-Phishing-Website-Detector)
 A machine learning project that analyses website features to identify potentially malicious or phishing websites.
 
 **🎯 Focus:** Classification · Cybersecurity · Detection
 
-### 4. ⚙️ [Boxwit: ML-Ops Pipeline](https://github.com/kennykrichardson/Boxwit-MLOps-Pipeline)
+### 5. ⚙️ [Boxwit: ML-Ops Pipeline](https://github.com/kennykrichardson/Boxwit-MLOps-Pipeline)
 An ML-Ops project focused on organizing and executing the stages of a machine learning workflow.
 
 **🎯 Focus:** MLOps · Pipeline automation
 
-### 5. 🚁 [Drone Fleet Optimization](https://github.com/kennykrichardson/Drone-Fleet-Optimization)
+### 6. 🚁 [Drone Fleet Optimization](https://github.com/kennykrichardson/Drone-Fleet-Optimization)
 An optimization project exploring the coordination and efficient allocation of tasks across a drone fleet.
 
 **🎯 Focus:** Optimization · Fleet coordination
