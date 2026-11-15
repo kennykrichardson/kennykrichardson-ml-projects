@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0d1117" />
 
-    <!-- Legacy-host fallback redirect.
-         Configure a real HTTP 301 redirect at the hosting layer as well. -->
+    <!-- Legacy-host fallback redirect -->
     <script>
       if (window.location.hostname === "kennykrichardson-ml.onrender.com") {
         window.location.replace(
@@ -26,19 +25,16 @@
     />
 
     <!-- Primary SEO -->
-    <title>Kenny Richardson • ML Projects</title>
+    <title>ML Projects • Kenny Richardson Kodipally (@kennykrichardson)</title>
     <meta
       name="description"
-      content="Explore machine learning experiments, research notebooks, simulations, and engineering projects by Kenny Richardson."
+      content="Explore machine learning projects, experiments, research notebooks, simulations, and technical implementations by Kenny Richardson Kodipally, known online as kennykrichardson."
     />
     <meta
       name="keywords"
-      content="Kenny Richardson, kennykrichardson, Kenny Richardson Kodipally, Machine Learning, Artificial Intelligence, ML Projects, Python, AI Engineering, Research Notebooks, Experiments"
+      content="ML Projects, Machine Learning, Kenny Richardson, Kenny Richardson Kodipally, kennykrichardson, AI Engineer, Machine Learning Engineer, Artificial Intelligence, Python, Research Notebooks, ML Experiments, Simulations"
     />
-    <meta
-      name="author"
-      content="Kenny Richardson, kennykrichardson, Kenny Richardson Kodipally"
-    />
+    <meta name="author" content="Kenny Richardson" />
     <meta name="creator" content="Kenny Richardson" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
 
@@ -58,12 +54,18 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Kenny Richardson's ML Projects" />
-    <meta property="og:url" content="https://ml.kennykrichardson.com/" />
-    <meta property="og:title" content="Kenny Richardson • ML Projects" />
+    <meta property="og:site_name" content="kennykrichardson • ML Projects" />
+    <meta
+      property="og:url"
+      content="https://ml.kennykrichardson.com/"
+    />
+    <meta
+      property="og:title"
+      content="ML Projects • Kenny Richardson Kodipally (@kennykrichardson)"
+    />
     <meta
       property="og:description"
-      content="Machine learning experiments, research notebooks, simulations, and engineering projects by Kenny Richardson."
+      content="Explore machine learning projects, experiments, research notebooks, simulations, and technical implementations by Kenny Richardson Kodipally (@kennykrichardson)."
     />
     <meta
       property="og:image"
@@ -73,15 +75,18 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Kenny Richardson's ML Projects"
+      content="ML Projects • Kenny Richardson Kodipally (@kennykrichardson)"
     />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kenny Richardson • ML Projects" />
+    <meta
+      name="twitter:title"
+      content="ML Projects • Kenny Richardson Kodipally (@kennykrichardson)"
+    />
     <meta
       name="twitter:description"
-      content="Explore machine learning experiments, research notebooks, simulations, and engineering projects by Kenny Richardson."
+      content="Machine learning projects, experiments, research notebooks, and simulations by Kenny Richardson (@kennykrichardson)."
     />
     <meta
       name="twitter:image"
@@ -92,23 +97,59 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": "Kenny Richardson's ML Projects",
-        "url": "https://ml.kennykrichardson.com/",
-        "description": "Machine learning experiments, research notebooks, simulations, and engineering projects by Kenny Richardson.",
-        "author": {
-          "@type": "Person",
-          "name": "Kenny Richardson",
-          "alternateName": [
-            "kennykrichardson",
-            "Kenny Richardson Kodipally"
-          ],
-          "url": "https://kennykrichardson.com/",
-          "sameAs": [
-            "https://github.com/kennykrichardson",
-            "https://linkedin.com/in/kennykrichardson"
-          ]
-        }
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://ml.kennykrichardson.com/#collection",
+            "url": "https://ml.kennykrichardson.com/",
+            "name": "ML Projects • Kenny Richardson Kodipally (@kennykrichardson)",
+            "description": "Explore machine learning projects, experiments, research notebooks, simulations, and technical implementations by Kenny Richardson Kodipally, known online as kennykrichardson.",
+            "author": {
+              "@id": "https://ml.kennykrichardson.com/#person"
+            },
+            "mainEntity": {
+              "@id": "https://ml.kennykrichardson.com/#person"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://ml.kennykrichardson.com/#person",
+            "name": "Kenny Richardson",
+            "givenName": "Kenny",
+            "familyName": "Richardson",
+            "alternateName": [
+              "kennykrichardson",
+              "Kenny Richardson Kodipally"
+            ],
+            "identifier": {
+              "@type": "PropertyValue",
+              "propertyID": "GitHub username",
+              "value": "kennykrichardson"
+            },
+            "disambiguatingDescription": "AI and machine learning engineer and full-stack developer known online as kennykrichardson.",
+            "jobTitle": "AI Engineer & Full-Stack Developer",
+            "url": "https://kennykrichardson.com/",
+            "mainEntityOfPage": {
+              "@id": "https://ml.kennykrichardson.com/#collection"
+            },
+            "sameAs": [
+              "https://github.com/kennykrichardson",
+              "https://linkedin.com/in/kennykrichardson",
+              "https://orcid.org/0009-0004-4108-6864"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://ml.kennykrichardson.com/#website",
+            "url": "https://ml.kennykrichardson.com/",
+            "name": "ML Projects • Kenny Richardson Kodipally (@kennykrichardson)",
+            "alternateName": "kennykrichardson ML Projects",
+            "publisher": {
+              "@id": "https://ml.kennykrichardson.com/#person"
+            },
+            "inLanguage": "en"
+          }
+        ]
       }
     </script>
   </head>
