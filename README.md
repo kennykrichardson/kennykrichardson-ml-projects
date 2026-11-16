@@ -64,8 +64,10 @@ An optimization project exploring the coordination and efficient allocation of t
 **Kenny Richardson**
 
 - 🐙 GitHub: [@kennykrichardson](https://github.com/kennykrichardson)
-- 🌐 Portfolio: [kennykrichardson.com](https://kennykrichardson.com)
+- 🌐 Portfolio: [kennykrichardson.com](https://www.kennykrichardson.com)
 
 ## 📄 License
 
 Unless a project repository states otherwise, the contents of this collection are provided under the [MIT License](LICENSE).
+
+# 🛠️ Engineered by Kenny Richardson Kodipally
