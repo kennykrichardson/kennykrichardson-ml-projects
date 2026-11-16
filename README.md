@@ -64,7 +64,7 @@ An optimization project exploring the coordination and efficient allocation of t
 **Kenny Richardson**
 
 - 🐙 GitHub: [@kennykrichardson](https://github.com/kennykrichardson)
-- 🌐 Portfolio: [kennykrichardson.com](https://www.kennykrichardson.com)
+- 🌐 Portfolio: [www.kennykrichardson.com](https://www.kennykrichardson.com)
 
 ## 📄 License
 
