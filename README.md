@@ -70,4 +70,6 @@ An optimization project exploring the coordination and efficient allocation of t
 
 Unless a project repository states otherwise, the contents of this collection are provided under the [MIT License](LICENSE).
 
+---
+
 # 🛠️ Engineered by Kenny Richardson Kodipally
