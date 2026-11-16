@@ -2,7 +2,7 @@
 
 Check out my ML Projects here:
 
-[Explore my ML Portfolio](https://ml.kennykrichardson.com)
+🌐 **[Explore my ML Portfolio](https://ml.kennykrichardson.com)**
 
 A curated collection of machine learning and AI engineering projects by **Kenny Richardson**.
 
